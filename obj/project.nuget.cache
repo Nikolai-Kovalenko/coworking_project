@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "NL86WMf3QikSmtfIR91LDNOWqmHl/5RXgujGSay3eKl/tRghCPi2dRpfjuMd36aktAmjJ/7OsjbehbyfINtXHw==",
+  "success": true,
+  "projectFilePath": "/home/nik/C#/coworking_project/coworking_project.csproj",
+  "expectedPackageFiles": [
+    "/home/nik/.nuget/packages/atksharp/3.24.24.38/atksharp.3.24.24.38.nupkg.sha512",
+    "/home/nik/.nuget/packages/cairosharp/3.24.24.38/cairosharp.3.24.24.38.nupkg.sha512",
+    "/home/nik/.nuget/packages/gdksharp/3.24.24.38/gdksharp.3.24.24.38.nupkg.sha512",
+    "/home/nik/.nuget/packages/giosharp/3.24.24.38/giosharp.3.24.24.38.nupkg.sha512",
+    "/home/nik/.nuget/packages/glibsharp/3.24.24.38/glibsharp.3.24.24.38.nupkg.sha512",
+    "/home/nik/.nuget/packages/gtksharp/3.24.24.38/gtksharp.3.24.24.38.nupkg.sha512",
+    "/home/nik/.nuget/packages/pangosharp/3.24.24.38/pangosharp.3.24.24.38.nupkg.sha512"
+  ],
+  "logs": []
+}
