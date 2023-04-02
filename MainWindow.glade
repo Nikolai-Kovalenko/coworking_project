@@ -34,7 +34,7 @@
             <property name="orientation">vertical</property>
             <property name="spacing">3</property>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="_place5">
                 <property name="width-request">0</property>
                 <property name="height-request">50</property>
                 <property name="visible">True</property>
@@ -54,7 +54,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="_place6">
                 <property name="width-request">0</property>
                 <property name="height-request">50</property>
                 <property name="visible">True</property>
@@ -74,7 +74,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="_place7">
                 <property name="width-request">0</property>
                 <property name="height-request">50</property>
                 <property name="visible">True</property>
@@ -243,7 +243,7 @@
             <property name="row-homogeneous">True</property>
             <property name="column-homogeneous">True</property>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="_place1">
                 <property name="width-request">35</property>
                 <property name="height-request">10</property>
                 <property name="visible">True</property>
@@ -256,7 +256,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="_place3">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="label" translatable="yes">Место 3</property>
@@ -267,7 +267,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="_place2">
                 <property name="width-request">50</property>
                 <property name="height-request">30</property>
                 <property name="visible">True</property>
@@ -284,7 +284,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="_place4">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="label" translatable="yes">Место 4</property>
@@ -298,6 +298,34 @@
           <packing>
             <property name="x">380</property>
             <property name="y">74</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="_button_count1">
+            <property name="label" translatable="yes">Сбросить</property>
+            <property name="width-request">76</property>
+            <property name="height-request">34</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+          </object>
+          <packing>
+            <property name="x">110</property>
+            <property name="y">190</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="_button_count2">
+            <property name="label" translatable="yes">Освободиь</property>
+            <property name="width-request">110</property>
+            <property name="height-request">35</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+          </object>
+          <packing>
+            <property name="x">169</property>
+            <property name="y">119</property>
           </packing>
         </child>
       </object>

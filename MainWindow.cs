@@ -6,16 +6,24 @@ namespace coworking_project
 {
     class MainWindow : Window
     {
-        [UI] private Button _button_count = null;
-        [UI] private Button _button_sale = null;
-        [UI] private Button _button_extend = null;
-        [UI] private Entry _entry_hours = null;
-        [UI] private Entry _entry_minutes = null;
-        [UI] private Label _label_price = null;
+        [UI] public Button _button_count = null;
+        [UI] public Button _button_sale = null;
+        [UI] public Button _button_extend = null;
+        [UI] public Entry _entry_hours = null;
+        [UI] public Entry _entry_minutes = null;
+        [UI] public Label _label_price = null;
+        [UI] public Entry _entry_place = null;
 
-        double price_for_minute = 4.99;
+        [UI] public Label _place1 = null;
+        [UI] public Label _place2 = null;
+        [UI] public Label _place3 = null;
+        [UI] public Label _place4 = null;
+        [UI] public Label _place5 = null;
+        [UI] public Label _place6 = null;
+        [UI] public Label _place7 = null;
 
-        private int _counter;
+        double price_for_minute = 1.5;
+
         public MainWindow() : this(new Builder("MainWindow.glade")) { }
 
         private MainWindow(Builder builder) : base(builder.GetRawOwnedObject("MainWindow"))
@@ -31,14 +39,14 @@ namespace coworking_project
             Application.Quit();
         }
 
-        private double All_minetes(double hours, double minutes) {
-            return hours * 60 + minutes;
-        }
-
         private void Button_count_Clicked(object sender, EventArgs a)
         {
-           double total_summ = All_minetes(Convert.ToDouble(_entry_hours.Text), Convert.ToDouble(_entry_minutes.Text));
-            _label_price.Text = $"{total_summ}";
+            string place     = _entry_place.Text;
+            string hours     = _entry_hours.Text;
+            string minutes    = _entry_minutes.Text;
+
+            Calc_price calc_price = new Calc_price();
+            _label_price.Text = calc_price.Calculate_price(place, hours, minutes);
         }
     }
 }
