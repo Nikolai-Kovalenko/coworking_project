@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.40.0 -->
 <interface>
-  <requires lib="gtk+" version="3.24"/>
+  <requires lib="gtk+" version="3.24" />
   <object class="GtkWindow" id="MainWindow">
     <property name="can-focus">False</property>
     <property name="default-width">800</property>
@@ -138,7 +138,7 @@
                 <property name="can-focus">True</property>
                 <property name="max-length">1</property>
                 <property name="overwrite-mode">True</property>
-                <property name="placeholder-text" translatable="yes">кол-во часов</property>
+                <property name="placeholder-text" translatable="yes">Лол-во часов</property>
                 <property name="input-purpose">digits</property>
               </object>
               <packing>
@@ -219,16 +219,18 @@
           </packing>
         </child>
         <child>
-          <object class="GtkEntry">
+          <object class="GtkEntry" id="_entry_place">
             <property name="width-request">168</property>
             <property name="height-request">35</property>
             <property name="visible">True</property>
             <property name="can-focus">True</property>
-            <property name="placeholder-text" translatable="yes">Нормер места</property>
+            <property name="max-length">1</property>
+            <property name="placeholder-text" translatable="yes">Номер места</property>
             <property name="input-purpose">number</property>
           </object>
           <packing>
-            <property name="y">119</property>
+            <property name="y">119
+            </property>
           </packing>
         </child>
         <child>
@@ -301,7 +303,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton" id="_button_count1">
+          <object class="GtkButton" id="_button_reset">
             <property name="label" translatable="yes">Сбросить</property>
             <property name="width-request">76</property>
             <property name="height-request">34</property>
@@ -315,7 +317,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton" id="_button_count2">
+          <object class="GtkButton" id="_button_free">
             <property name="label" translatable="yes">Освободиь</property>
             <property name="width-request">110</property>
             <property name="height-request">35</property>
@@ -331,5 +333,5 @@
       </object>
     </child>
   </object>
-  <object class="GtkAction" id="action1"/>
+  <object class="GtkAction" id="action1" />
 </interface>
