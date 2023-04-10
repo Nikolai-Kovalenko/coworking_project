@@ -1,5 +1,6 @@
 using System;
 using System.Threading;
+using System.Threading.Tasks;
 using Gtk;
 using UI = Gtk.Builder.ObjectAttribute;
 
@@ -69,27 +70,34 @@ namespace coworking_project
             _label_price.Text = "";
         }
 
-        private void _button_sale_Clicked(object sender, EventArgs a)
+        private async void _button_sale_Clicked(object sender, EventArgs a)
         {
             Label[] labels = new Label[] { _place1, _place2, _place3, _place4, _place5, _place6, _place7 };
             try
             {
                 int num = Convert.ToInt32(this.place) - 1;
-
                 Timer timer = new Timer(hours, minutes);
 
                 _label_price.Text = $"Оплпта {_price} пинята и место {place} забронировано";
 
                 for (int i = timer.seconds(); i > 0; i--)
                 {
-                    labels[num].Text = $"Новый текст {i}";
-                    Thread.Sleep(100);
+                    labels[num].Text = $"Осталось {i} секунд";
+                    await Task.Delay(1000);
                 }
+
             }
             catch
             {
                 _label_price.Text = "Сначала рассчитайте цену для нового места!";
             }
+        }
+
+        int i = 0;
+        private string Print_time()
+        {
+            return $"Text{i}";
+            i++;
         }
     }
 }
