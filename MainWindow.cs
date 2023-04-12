@@ -28,6 +28,7 @@ namespace coworking_project
         [UI] public Label _place6 = null;
         [UI] public Label _place7 = null;
 
+
         string place;
         string hours;
         string minutes;
@@ -75,17 +76,25 @@ namespace coworking_project
             Label[] labels = new Label[] { _place1, _place2, _place3, _place4, _place5, _place6, _place7 };
             try
             {
-                int num = Convert.ToInt32(this.place) - 1;
+                int num = Convert.ToInt32(place) - 1;
                 Timer timer = new Timer(hours, minutes);
 
                 _label_price.Text = $"Оплпта {_price} пинята и место {place} забронировано";
 
-                for (int i = timer.seconds(); i > 0; i--)
+                for (int i = timer.seconds(); i >= 0; i--)
                 {
-                    labels[num].Text = $"Осталось {i} секунд";
+                    labels[num].Text = $"Осталось {i} сек.";
                     await Task.Delay(1000);
                 }
 
+                if (num + 1 < 5)
+                {
+                    labels[num].Text = $"Место {num + 1}";
+                }
+                else
+                {
+                    labels[num].Text = $"Конференц-зал {num + 1}";
+                }
             }
             catch
             {
