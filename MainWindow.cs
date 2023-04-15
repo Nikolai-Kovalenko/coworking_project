@@ -42,7 +42,8 @@ namespace coworking_project
             DeleteEvent += Window_DeleteEvent;
             _button_count.Clicked += Button_count_Clicked;
             _button_reset.Clicked += Button_reset_Clicked;
-            _button_sale.Clicked += _button_sale_Clicked;
+            _button_sale.Clicked += Button_sale_Clicked;
+            //_button_free.Clicked += Button_free_Clicked;
         }
 
         private void Window_DeleteEvent(object sender, DeleteEventArgs a)
@@ -71,42 +72,49 @@ namespace coworking_project
             _label_price.Text = "";
         }
 
-        private async void _button_sale_Clicked(object sender, EventArgs a)
+        private void Button_sale_Clicked(object sender, EventArgs a)
         {
-            Label[] labels = new Label[] { _place1, _place2, _place3, _place4, _place5, _place6, _place7 };
-            try
-            {
-                int num = Convert.ToInt32(place) - 1;
-                Timer timer = new Timer(hours, minutes);
-
-                _label_price.Text = $"Оплпта {_price} пинята и место {place} забронировано";
-
-                for (int i = timer.seconds(); i >= 0; i--)
-                {
-                    labels[num].Text = $"Осталось {i} сек.";
-                    await Task.Delay(1000);
-                }
-
-                if (num + 1 < 5)
-                {
-                    labels[num].Text = $"Место {num + 1}";
-                }
-                else
-                {
-                    labels[num].Text = $"Конференц-зал {num + 1}";
-                }
-            }
-            catch
-            {
-                _label_price.Text = "Сначала рассчитайте цену для нового места!";
-            }
+            Print_time();
         }
 
-        int i = 0;
-        private string Print_time()
+        private async void Print_time()
         {
-            return $"Text{i}";
-            i++;
+            Label[] labels = new Label[] { _place1, _place2, _place3, _place4, _place5, _place6, _place7 };
+            int num = Convert.ToInt32(place) - 1;
+
+            string str = labels[num].Text;
+            if (str.StartsWith("Место") || str.StartsWith("Конфе"))
+            {
+                try
+                {
+                    Timer timer = new Timer(hours, minutes);
+
+                    _label_price.Text = $"Оплпта {_price} пинята и место {place} забронировано";
+
+                    for (int i = timer.seconds(); i >= 0; i--)
+                    {
+                        labels[num].Text = $"Осталось {i} сек.";
+                        await Task.Delay(1000);
+                    }
+
+                    if (num + 1 < 5)
+                    {
+                        labels[num].Text = $"Место {num + 1}";
+                    }
+                    else
+                    {
+                        labels[num].Text = $"Конференц-зал {num + 1}";
+                    }
+                }
+                catch
+                {
+                    _label_price.Text = "Сначала рассчитайте цену для нового места!";
+                }
+            }
+            else
+            {
+                _label_price.Text = "Данное место уже занято!";
+            }
         }
     }
 }
