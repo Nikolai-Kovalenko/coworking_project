@@ -74,6 +74,8 @@ namespace coworking_project
 
         private void Button_sale_Clicked(object sender, EventArgs a)
         {
+            Timer time = new Timer();
+            time.TestMethod(_place4);
             Print_time();
         }
 

@@ -1,13 +1,19 @@
 using System;
+using System.Threading;
+using System.Threading.Tasks;
 using Gtk;
 using UI = Gtk.Builder.ObjectAttribute;
 
 namespace coworking_project
 {
-    class Timer
+    class Timer : MainWindow
     {
         int hours;
         int minutes;
+
+        public Timer()
+        {
+        }
 
         public Timer(string hours, string minutes)
         {
@@ -23,6 +29,12 @@ namespace coworking_project
         public string Сountdown()
         {
             return $"";
+        }
+
+        public void TestMethod(Label label)
+        {
+            label.Text = "sdg";
+
         }
 
     }
