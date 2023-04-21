@@ -6,7 +6,7 @@ using UI = Gtk.Builder.ObjectAttribute;
 
 namespace coworking_project
 {
-    class Timer : MainWindow
+    class Timer
     {
         int hours;
         int minutes;

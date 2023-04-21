@@ -74,8 +74,6 @@ namespace coworking_project
 
         private void Button_sale_Clicked(object sender, EventArgs a)
         {
-            Timer time = new Timer();
-            time.TestMethod(_place4);
             Print_time();
         }
 
@@ -83,6 +81,9 @@ namespace coworking_project
         {
             Label[] labels = new Label[] { _place1, _place2, _place3, _place4, _place5, _place6, _place7 };
             int num = Convert.ToInt32(place) - 1;
+
+            Places places = new Places(labels);
+            places.Print_time();
 
             string str = labels[num].Text;
             if (str.StartsWith("Место") || str.StartsWith("Конфе"))
