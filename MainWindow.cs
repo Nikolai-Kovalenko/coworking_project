@@ -33,6 +33,7 @@ namespace coworking_project
         string hours;
         string minutes;
         string _price;
+
         public MainWindow() : this(new Builder("MainWindow.glade")) { }
 
         private MainWindow(Builder builder) : base(builder.GetRawOwnedObject("MainWindow"))
@@ -44,6 +45,14 @@ namespace coworking_project
             _button_reset.Clicked += Button_reset_Clicked;
             _button_sale.Clicked += Button_sale_Clicked;
             //_button_free.Clicked += Button_free_Clicked;
+        }
+
+        public void Run_sicle()
+        {
+            Label[] labels = new Label[] { _place1, _place2, _place3, _place4, _place5, _place6, _place7 };
+
+            Places places = new Places(labels);
+            places.Print_time();
         }
 
         private void Window_DeleteEvent(object sender, DeleteEventArgs a)
@@ -77,37 +86,24 @@ namespace coworking_project
             Print_time();
         }
 
-        private async void Print_time()
+        private void Print_time()
         {
+
             Label[] labels = new Label[] { _place1, _place2, _place3, _place4, _place5, _place6, _place7 };
             int num = Convert.ToInt32(place) - 1;
 
-            Places places = new Places(labels);
-            places.Print_time();
 
             string str = labels[num].Text;
+
             if (str.StartsWith("Место") || str.StartsWith("Конфе"))
             {
                 try
                 {
                     Timer timer = new Timer(hours, minutes);
 
+                    Places places = new Places();
+                    places.set_text(3, "new text");
                     _label_price.Text = $"Оплпта {_price} пинята и место {place} забронировано";
-
-                    for (int i = timer.seconds(); i >= 0; i--)
-                    {
-                        labels[num].Text = $"Осталось {i} сек.";
-                        await Task.Delay(1000);
-                    }
-
-                    if (num + 1 < 5)
-                    {
-                        labels[num].Text = $"Место {num + 1}";
-                    }
-                    else
-                    {
-                        labels[num].Text = $"Конференц-зал {num + 1}";
-                    }
                 }
                 catch
                 {

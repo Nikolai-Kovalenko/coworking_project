@@ -17,7 +17,10 @@ namespace coworking_project
             app.AddWindow(win);
 
             win.Show();
+            win.Run_sicle();
             Application.Run();
+
+            //win.Run_sicle();
         }
     }
 }

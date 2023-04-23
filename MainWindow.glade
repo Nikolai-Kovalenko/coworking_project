@@ -138,7 +138,7 @@
                 <property name="can-focus">True</property>
                 <property name="max-length">1</property>
                 <property name="overwrite-mode">True</property>
-                <property name="placeholder-text" translatable="yes">Лол-во часов</property>
+                <property name="placeholder-text" translatable="yes">Кол-во часов</property>
                 <property name="input-purpose">digits</property>
               </object>
               <packing>
