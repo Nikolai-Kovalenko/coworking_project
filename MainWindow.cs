@@ -34,6 +34,8 @@ namespace coworking_project
         string minutes;
         string _price;
 
+        public static Places places = new Places();
+
         public MainWindow() : this(new Builder("MainWindow.glade")) { }
 
         private MainWindow(Builder builder) : base(builder.GetRawOwnedObject("MainWindow"))
@@ -44,14 +46,14 @@ namespace coworking_project
             _button_count.Clicked += Button_count_Clicked;
             _button_reset.Clicked += Button_reset_Clicked;
             _button_sale.Clicked += Button_sale_Clicked;
+            _button_free.Clicked += Button_free_Clicked;
             //_button_free.Clicked += Button_free_Clicked;
         }
 
         public void Run_sicle()
         {
             Label[] labels = new Label[] { _place1, _place2, _place3, _place4, _place5, _place6, _place7 };
-
-            Places places = new Places(labels);
+            places.Get_arr(labels);
             places.Print_time();
         }
 
@@ -85,6 +87,10 @@ namespace coworking_project
         {
             Print_time();
         }
+        private void Button_free_Clicked(object sender, EventArgs a)
+        {
+            Remove_text(Convert.ToInt32(place) - 1);
+        }
 
         private void Print_time()
         {
@@ -101,8 +107,8 @@ namespace coworking_project
                 {
                     Timer timer = new Timer(hours, minutes);
 
-                    Places places = new Places();
-                    places.set_text(3, "new text");
+                    //Places places = new Places();
+                    places.set_text(num, "new text");
                     _label_price.Text = $"Оплпта {_price} пинята и место {place} забронировано";
                 }
                 catch
@@ -114,6 +120,20 @@ namespace coworking_project
             {
                 _label_price.Text = "Данное место уже занято!";
             }
+        }
+
+        private void Remove_text(int num_place)
+        {
+            string new_tex;
+            if (num_place < 5)
+            {
+                new_tex = $"Месо {num_place + 1}";
+            }
+            else
+            {
+                new_tex = $"Конференц-зал {num_place + 1}";
+            }
+            places.set_text(num_place, new_tex);
         }
     }
 }

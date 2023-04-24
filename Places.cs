@@ -14,7 +14,7 @@ namespace coworking_project
 
         public Places() { }
 
-        public Places(Label[] get_label)
+        public void Get_arr(Label[] get_label)
         {
             FillArray(labels, get_label);
         }
@@ -29,16 +29,18 @@ namespace coworking_project
 
         public async void Print_time()
         {
-            int j = 0;
             while (true)
             {
                 for (int i = 0; i < labels.Length; i++)
                 {
-                    labels[i].Text = label[i] + $"{j}";
+                    labels[i].Text = label[i];
                     label[i] = label[i];
                 }
-                j++;
                 await Task.Delay(1000);
+                foreach (var i in label)
+                {
+                    System.Console.WriteLine(i);
+                }
             }
         }
         //private string[] places = { "Место 1", "Место 2", "Место 3", "Место 4", "Конференц-зал 5", "Конференц-зал 6", "Конференц-зал 7" };
@@ -50,8 +52,8 @@ namespace coworking_project
 
         public void set_text(int num_place, string text)
         {
-            int place_index = num_place - 1;
-            label[place_index] = text;
+            label[num_place] = text;
+
         }
     }
 }
