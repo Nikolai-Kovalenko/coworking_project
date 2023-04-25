@@ -8,8 +8,8 @@ namespace coworking_project
 {
     class Timer
     {
-        int hours;
-        int minutes;
+        public int hours;
+        public int minutes;
 
         public Timer()
         {
@@ -30,12 +30,5 @@ namespace coworking_project
         {
             return $"";
         }
-
-        public void TestMethod(Label label)
-        {
-            label.Text = "sdg";
-
-        }
-
     }
 }

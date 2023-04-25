@@ -33,8 +33,16 @@ namespace coworking_project
             {
                 for (int i = 0; i < labels.Length; i++)
                 {
-                    labels[i].Text = label[i];
-                    label[i] = label[i];
+                    if (label[i].StartsWith("Место") || label[i].StartsWith("Конфе"))
+                    {
+                        labels[i].Text = label[i];
+                    }
+                    else
+                    {
+                        int get_seconds = Convert.ToInt32(label[i]);
+                        label[i] = $"{get_seconds - 1}";
+                        labels[i].Text = Print_rimer(get_seconds);
+                    }
                 }
                 await Task.Delay(1000);
                 foreach (var i in label)
@@ -53,7 +61,16 @@ namespace coworking_project
         public void set_text(int num_place, string text)
         {
             label[num_place] = text;
+        }
 
+        private string Print_rimer(int seconds)
+        {
+            int hours = seconds / 3600;
+            int minutes = (seconds % 3600) / 60;
+            int secs = seconds % 60;
+
+            string result = $"остался {hours} час{(hours == 1 ? "" : "а")} {minutes} минут{(minutes == 1 ? "а" : "")} {secs} секунд{(secs == 1 ? "" : "ы")}";
+            return result;
         }
     }
 }

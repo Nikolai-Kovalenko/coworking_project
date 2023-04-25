@@ -47,6 +47,7 @@ namespace coworking_project
             _button_reset.Clicked += Button_reset_Clicked;
             _button_sale.Clicked += Button_sale_Clicked;
             _button_free.Clicked += Button_free_Clicked;
+            _button_extend.Clicked += Button_extend_Clicked;
             //_button_free.Clicked += Button_free_Clicked;
         }
 
@@ -89,7 +90,12 @@ namespace coworking_project
         }
         private void Button_free_Clicked(object sender, EventArgs a)
         {
-            Remove_text(Convert.ToInt32(place) - 1);
+            Remove_text(Convert.ToInt32(_entry_place.Text) - 1);
+        }
+
+        private void Button_extend_Clicked(object sender, EventArgs a)
+        {
+
         }
 
         private void Print_time()
@@ -108,7 +114,7 @@ namespace coworking_project
                     Timer timer = new Timer(hours, minutes);
 
                     //Places places = new Places();
-                    places.set_text(num, "new text");
+                    places.set_text(num, Convert.ToString(timer.seconds()));
                     _label_price.Text = $"Оплпта {_price} пинята и место {place} забронировано";
                 }
                 catch
@@ -127,7 +133,7 @@ namespace coworking_project
             string new_tex;
             if (num_place < 5)
             {
-                new_tex = $"Месо {num_place + 1}";
+                new_tex = $"Место {num_place + 1}";
             }
             else
             {
