@@ -72,5 +72,10 @@ namespace coworking_project
             string result = $"остался {hours} час{(hours == 1 ? "" : "а")} {minutes} минут{(minutes == 1 ? "а" : "")} {secs} секунд{(secs == 1 ? "" : "ы")}";
             return result;
         }
+
+        public void extend_time(int num_place)
+        {
+            System.Console.WriteLine("debug");
+        }
     }
 }

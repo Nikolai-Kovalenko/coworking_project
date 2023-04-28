@@ -95,19 +95,23 @@ namespace coworking_project
 
         private void Button_extend_Clicked(object sender, EventArgs a)
         {
-
+            int num_place = Convert.ToInt32(place) - 1;
+            if (Checking_for_occupancy_place(num_place) == false)
+            {
+                places.extend_time(num_place);
+            }
+            else
+            {
+                _label_price.Text = "невозможно продлить место, которое сйечас не занято!";
+            }
         }
 
         private void Print_time()
         {
 
-            Label[] labels = new Label[] { _place1, _place2, _place3, _place4, _place5, _place6, _place7 };
             int num = Convert.ToInt32(place) - 1;
 
-
-            string str = labels[num].Text;
-
-            if (str.StartsWith("Место") || str.StartsWith("Конфе"))
+            if (Checking_for_occupancy_place(num))
             {
                 try
                 {
@@ -140,6 +144,22 @@ namespace coworking_project
                 new_tex = $"Конференц-зал {num_place + 1}";
             }
             places.set_text(num_place, new_tex);
+        }
+
+        private bool Checking_for_occupancy_place(int num_place)
+        {
+
+            Label[] labels = new Label[] { _place1, _place2, _place3, _place4, _place5, _place6, _place7 };
+            string str = labels[num_place].Text;
+
+            if (str.StartsWith("Место") || str.StartsWith("Конфе"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
