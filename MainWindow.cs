@@ -88,6 +88,7 @@ namespace coworking_project
         {
             Print_time();
         }
+
         private void Button_free_Clicked(object sender, EventArgs a)
         {
             Remove_text(Convert.ToInt32(_entry_place.Text) - 1);
@@ -98,7 +99,10 @@ namespace coworking_project
             int num_place = Convert.ToInt32(place) - 1;
             if (Checking_for_occupancy_place(num_place) == false)
             {
-                places.extend_time(num_place);
+                Timer timer = new Timer(hours, minutes);
+                int add_seconds = timer.seconds();
+             
+                places.extend_time(num_place, add_seconds);
             }
             else
             {

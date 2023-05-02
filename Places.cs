@@ -45,10 +45,10 @@ namespace coworking_project
                     }
                 }
                 await Task.Delay(1000);
-                foreach (var i in label)
-                {
-                    System.Console.WriteLine(i);
-                }
+                // foreach (var i in label)
+                // {
+                //     System.Console.WriteLine(i);
+                // }
             }
         }
         //private string[] places = { "Место 1", "Место 2", "Место 3", "Место 4", "Конференц-зал 5", "Конференц-зал 6", "Конференц-зал 7" };
@@ -73,9 +73,11 @@ namespace coworking_project
             return result;
         }
 
-        public void extend_time(int num_place)
+        public void extend_time(int num_place, int new_seonds)
         {
-            System.Console.WriteLine("debug");
+            int now_seconds = Convert.ToInt32(label[num_place]);
+            int add_seconds = now_seconds + new_seonds;
+            label[num_place] = $"{add_seconds}";
         }
     }
 }
